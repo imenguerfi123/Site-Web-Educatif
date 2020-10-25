@@ -1,0 +1,70 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Emails</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Emails</a>&nbsp;
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Emails</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Nom</th>
+                          <th>Email</th>
+                          <th>Message</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let c of listecontact">
+                          <td>{{c.id}}</td>
+                          <td>{{c.nom}}</td>
+                          <td>{{c.email}}</td>
+                          <td>{{c.message}}</td>
+                          <td> <button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="delete(c.id)"></i>
+                          </button></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

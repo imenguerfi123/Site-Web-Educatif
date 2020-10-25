@@ -1,0 +1,158 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Cours</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Cours</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Tous Les Cours</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tabbable-line">
+              <ul class="nav customtab nav-tabs" role="tablist">
+                <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">List
+                  View</a></li>
+                <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">Grid
+                  View</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active fontawesome-demo" id="tab1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-box">
+                        <div class="card-head">
+                          <header>Tous Les Cours</header>
+                        </div>
+                        <div class="card-body ">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-6">
+                              <div class="btn-group">
+                                <a routerLink="/home/ajoutercours" id="addRow"
+                                   class="btn btn-info">
+                                  Ajouter un nouveau <i class="fa fa-plus"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="table-scrollable">
+                            <table
+                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                              id="example4">
+                              <thead>
+                              <tr>
+                                <th>photo</th>
+                                <th>id</th>
+                                <th>Matiere</th>
+                                <th>Référence</th>
+                                <th>Date</th>
+                                <th> Action </th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr class="odd gradeX" *ngFor="let c of listecours">
+                                <td class="patient-img">
+                                  <img src="http://localhost:9000/upload/files/{{c.photo}}" height="50" width="50" class="img-circle">
+                                </td>
+                                <td>{{c.id}}</td>
+                                <td>{{c.matiere}}</td>
+                                <td>{{c.reference}}</td>
+                                <td>{{c.date}}</td>
+                                <td><button
+                                  class="btn btn-primary btn-xs">
+                                  <i class="fa fa-pencil" data-toggle="modal" data-target="#add" (click)="recupperer(c.photo,c.id,c.matiere,c.reference,c.date,c.duree,c.description,c.nombre_lecon,c.ca.id)"></i>
+                                </button>
+                                  <button class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o" (click)="delete(c.id)"></i>
+                                  </button></td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <div class="row">
+                    <div class="card-box">
+                      <div class="card-head">
+                        <header>Tous Les Cours</header>
+                      </div>
+                      <div class="card-body ">
+                        <!-- start course list -->
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 col-12 col-sm-6" *ngFor="let c of listecours">
+                            <div class="blogThumb">
+                              <div class="thumb-center"><img src="http://localhost:9000/upload/files/{{c.photo}}" class="img-responsive"></div>
+                              <div class="course-box">
+                                <h4>{{c.matiere}}</h4>
+                                <div class="text-muted"><span class="m-r-10">Date {{c.date}}</span>
+                                  <a class="course-likes m-l-10"> </a>
+                                </div>
+                                <p><span><i class="ti-alarm-clock"></i> Durée: {{c.duree}}</span></p>
+                                <p><span><i class="fa fa-graduation-cap"></i> Nombre de Leçons: {{c.nombre_lecon}}</span></p>
+                                <button type="button"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info"routerLink="/home/cours/{{c.id}}/coursdet">Lire
+                                  La Suite</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- End course list -->
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="http://localhost:9000/upload/files/{{cours.photo}}" height="50" width="50" class="img-circle"><br>
+
+        <label>Matiere : </label><br>
+        <input [(ngModel)]="cours.matiere" name="cours.matiere" ><br>
+        <label>Référence : </label><br>
+        <input [(ngModel)]="cours.reference" name="cours.reference" ><br>
+        <label>Description : </label><br>
+        <input [(ngModel)]="cours.description" name="cours.description" ><br>
+        <label>Durée : </label><br>
+        <input [(ngModel)]="cours.duree" name="cours.duree" ><br>
+        <label>Nombre de Leçons : </label><br>
+        <input [(ngModel)]="cours.nombre_lecon" name="cours.nombre_lecon" ><br>
+        <label>Date : </label><br>
+        <input [(ngModel)]="cours.date" name="cours.date" ><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="modiffier()"  data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

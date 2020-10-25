@@ -1,0 +1,122 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Administrateurs</a>&nbsp;<i
+                class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Détails De l'administrateur</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card card-topline-aqua">
+          <div class="card-body no-padding height-9">
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">Détails de l'administrateur </div>
+            </div>
+            <button data-toggle="modal" data-target="#mail"><i class="fa fa-envelope" style="font-size: 30px; color: #ff1315"></i></button>
+            <ul class="list-group list-group-unbordered">
+              <li class="list-group-item">
+                <b>photo</b>
+                <div class="col-md-4">
+                  <h4><img src="http://localhost:9000/upload/files/{{detailleadmin.photo}}" height="50" width="50"></h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>nom</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.nom}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>prenom</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.prenom}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Métier</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.metier}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Numéro de téléphone</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.num_tel}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Adresse</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.adresse}}</h4>
+                </div>
+              </li>
+
+              <li class="list-group-item">
+                <b>login</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.login}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>mot_de_passe</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.mot_de_passe}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>confirme_mot_de_passe</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.confirme_mot_de_passe}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>date_enregistrement</b>
+                <div class="col-md-4">
+                  <h4>{{detailleadmin.date_enregistrement}}</h4>
+                </div>
+              </li>
+
+            </ul>
+            <!-- END SIDEBAR USER TITLE -->
+          </div>
+        </div>
+        <div class="modal fade" id="mail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Envoyer un email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Sujet</label><br>
+                <input class="form-control" placeholder="nom"  [(ngModel)]="mail.subject" name="mail.subject"><br>
+                <label>Contenu</label><br>
+                <input class="form-control" placeholder="nom"  [(ngModel)]="mail.content" name="mail.content"><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="sendmail()"  data-dismiss="modal">Enregistrer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

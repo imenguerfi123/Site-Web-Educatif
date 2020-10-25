@@ -1,0 +1,110 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Travaux Pratiques</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Travaux Pratiques</a>&nbsp;<i
+                class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Tous Les Travaux Pratiques</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Travaux Pratiques</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Titre</th>
+                          <th>Objectif</th>
+                          <th>Materiels</th>
+                          <th>Logiciel</th>
+                          <th>Date</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let tp of listetps">
+                          <td>{{tp.id}}</td>
+                          <td>{{tp.titre}}</td>
+                          <td>{{tp.objectif}}</td>
+                          <td>{{tp.materiels}}</td>
+                          <td>{{tp.logiciel}}</td>
+                          <td>{{tp.date}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#add" (click)="reecuperer(tp.id,tp.titre,tp.objectif,tp.materiels,tp.logiciel,tp.date,tp.cours.id)"></i>
+                          </button></td>
+                          <td><button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="delette(tp.id)"></i>
+                          </button></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <label>Titre : </label><br>
+        <input [(ngModel)]="tp.titre" name="tp.titre"><br>
+        <label>Objectif : </label><br>
+        <input [(ngModel)]="tp.objectif" name="tp.objectif"><br>
+        <label>Materiels : </label><br>
+        <input [(ngModel)]="tp.materiels" name="tp.materiels"><br>
+        <label>Logiciel : </label><br>
+        <input [(ngModel)]="tp.logiciel" name="tp.logiciel"><br>
+        <label>Date : </label><br>
+        <input [(ngModel)]="tp.date" name="tp.date"><br>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="moodifier()"  data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

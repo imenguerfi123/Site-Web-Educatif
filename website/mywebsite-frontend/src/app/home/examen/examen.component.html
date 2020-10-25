@@ -1,0 +1,107 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Examens</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les  Examens</a>&nbsp;<i
+                class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Tous Les Examens</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Examens</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Matière</th>
+                          <th>nombre_exercices</th>
+                          <th>nombre_page</th>
+                          <th>Durée d'examen</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let e of listeexamens">
+                          <td>{{e.id}}</td>
+                          <td>{{e.matiere}}</td>
+                          <td>{{e.nombre_exercices}}</td>
+                          <td>{{e.nombre_page}}</td>
+                          <td>{{e.duree_examen}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#add" (click)="recuppperer(e.id,e.matiere,e.nombre_exercices,e.nombre_page,e.duree_examen,e.cours.id)"></i>
+                          </button></td>
+                          <td> <button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="deeleete(e.id)"></i>
+                          </button></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <label>Matière : </label><br>
+        <input [(ngModel)]="examen.matiere" name="examen.matiere"><br>
+        <label>Nombre_exercice : </label><br>
+        <input  [(ngModel)]="examen.nombre_exercices" type="text" name="examen.nombre_exercices"><br>
+        <label>Nombre de pages : </label><br>
+        <input [(ngModel)]="examen.nombre_page" name="examen.nombre_page"><br>
+        <label>Logiciel : </label><br>
+        <input [(ngModel)]="examen.duree_examen" name="examen.duree_examen"><br>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="modifiiier()"  data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

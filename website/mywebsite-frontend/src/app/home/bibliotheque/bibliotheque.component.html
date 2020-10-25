@@ -1,0 +1,549 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Articles</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Bibliothèque</a>&nbsp;
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Articles</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>titre</th>
+                          <th>Auteur</th>
+                          <th>reference</th>
+                          <th>Date_publication</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let a of listearticles">
+                          <td>{{a.id}}</td>
+                          <td>{{a.titre}}</td>
+                          <td>{{a.auteur}}</td>
+                          <td>{{a.reference}}</td>
+                          <td>{{a.date_publication}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#add" (click)="reccupperer(a.id,a.titre,a.auteur,a.reference,a.date_publication,a.cat.id)"></i>
+                          </button></td>
+                          <td><button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="deletee(a.id)"></i>
+                          </button></td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Titre : </label><br>
+                <input [(ngModel)]="article.titre" name="article.titre"><br>
+                <label>Auteur : </label><br>
+                <input [(ngModel)]="article.auteur" name="article.auteur"><br>
+                <label>Référence : </label><br>
+                <input [(ngModel)]="article.reference" name="article.reference"><br>
+                <label>Date_publication : </label><br>
+                <input [(ngModel)]="article.date_publication" name="article.date_publication"><br>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="moddiifier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-bar">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Projets</div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les projets</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>logiciel</th>
+                          <th>titre</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+                          <th>Details</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let p of listeprojets">
+                          <td>{{p.id}}</td>
+                          <td>{{p.logiciel}}</td>
+                          <td>{{p.titre}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#ad" (click)="recuperer(p.id,p.titre,p.logiciel,p.description,p.prix,p.date,p.c.id)"></i>
+                          </button></td>
+                          <td> <button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="deleete(p.id)"></i>
+                          </button></td>
+                          <td>
+                            <button type="submit" routerLink="/home/projets/{{p.id}}/projdet" class="btn btn-success btn-xs" >Détails</button>
+                          </td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="ad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabl" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabl">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Titre : </label><br>
+                <input [(ngModel)]="projet.titre" name="projet.titre"><br>
+                <label>Logiciel: </label><br>
+                <input [(ngModel)]="projet.logiciel" name="projet.logiciel"><br>
+                <label>Description : </label><br>
+                <input [(ngModel)]="projet.description" name="projet.description"><br>
+                <label>Prix : </label><br>
+                <input [(ngModel)]="projet.prix" name="projet.prix"><br>
+                <label>Date : </label><br>
+                <input [(ngModel)]="projet.date" name="projet.date"><br>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)=" modifier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-bar">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Cours</div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Cours</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>matiere</th>
+                          <th>reference</th>
+                          <th>Date</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let c of listecours">
+                          <td>{{c.id}}</td>
+                          <td>{{c.matiere}}</td>
+                          <td>{{c.reference}}</td>
+                          <td>{{c.date}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#addd" (click)="recupperer(c.id,c.matiere,c.reference,c.date,c.ca.id)"></i>
+                          </button></td>
+                          <td><button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="delete(c.id)"></i>
+                          </button></td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="addd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabell">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <label>Matiere : </label><br>
+                <input [(ngModel)]="cours.matiere" name="cours.matiere" ><br>
+                <label>Référence : </label><br>
+                <input [(ngModel)]="cours.reference" name="cours.reference" ><br>
+                <label>Date : </label><br>
+                <input [(ngModel)]="cours.date" name="cours.date" ><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="modiffier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-bar">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Travaux Dirigés</div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Travaux Dirigés</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>matiere</th>
+                          <th>chapitre</th>
+                          <th>nombre d'exercices</th>
+                          <th>Date</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let t of listetds">
+                          <td>{{t.id}}</td>
+                          <td>{{t.matiere}}</td>
+                          <td>{{t.chapitre}}</td>
+                          <td>{{t.nombre_exercie}}</td>
+                          <td>{{t.date}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#aadd" (click)="reccuperer(t.id,t.matiere,t.chapitre,t.nombre_exercice,t.date,t.cours.id)"></i>
+                          </button></td>
+                          <td><button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="dellete(t.id)"></i>
+                          </button></td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="aadd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelll" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabelll">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Matiere : </label><br>
+                <input [(ngModel)]="td.matiere" name="cours.matiere"><br>
+                <label>Chapitre : </label><br>
+                <input [(ngModel)]="td.chapitre" name="cours.reference"><br>
+                <label>Nombre d'exercices : </label><br>
+                <input [(ngModel)]="td.nombre_exercie" name="cours.reference"><br>
+                <label>Date : </label><br>
+                <input [(ngModel)]="td.date" name="cours.date"><br>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="moddifier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-bar">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Travaux Pratiques</div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Travaux Pratiques</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Titre</th>
+                          <th>Objectif</th>
+                          <th>Materiels</th>
+                          <th>Logiciel</th>
+                          <th>Date</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let tp of listetps">
+                          <td>{{tp.id}}</td>
+                          <td>{{tp.titre}}</td>
+                          <td>{{tp.objectif}}</td>
+                          <td>{{tp.materiels}}</td>
+                          <td>{{tp.logiciel}}</td>
+                          <td>{{tp.date}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#adddd" (click)="reecuperer(tp.id,tp.titre,tp.objectif,tp.materiels,tp.logiciel,tp.date,tp.cours.id)"></i>
+                          </button></td>
+                          <td><button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="delette(tp.id)"></i>
+                          </button></td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="adddd" tabindex="-1" role="dialog" aria-labelledby="exampleModalllLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalllLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Titre : </label><br>
+                <input [(ngModel)]="tp.titre" name="tp.titre"><br>
+                <label>Objectif : </label><br>
+                <input [(ngModel)]="tp.objectif" name="tp.objectif"><br>
+                <label>Materiels : </label><br>
+                <input [(ngModel)]="tp.materiels" name="tp.materiels"><br>
+                <label>Logiciel : </label><br>
+                <input [(ngModel)]="tp.logiciel" name="tp.logiciel"><br>
+                <label>Date : </label><br>
+                <input [(ngModel)]="tp.date" name="tp.date"><br>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="moodifier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page-bar">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Examens</div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-topline-purple">
+                  <div class="card-head">
+                    <header>Les Examens</header>
+                    <div class="tools">
+                      <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                      <a class="t-collapse btn-color fa fa-chevron-down"
+                         href="javascript:;"></a>
+                      <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                    </div>
+                  </div>
+                  <div class="card-body ">
+                    <div class="table-responsive">
+                      <table class="table table-striped custom-table table-hover">
+                        <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Matière</th>
+                          <th>nombre_exercices</th>
+                          <th>nombre_page</th>
+                          <th>Durée d'examen</th>
+                          <th>modifier</th>
+                          <th>supprimer</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let e of listeexamens">
+                          <td>{{e.id}}</td>
+                          <td>{{e.matiere}}</td>
+                          <td>{{e.nombre_exercices}}</td>
+                          <td>{{e.nombre_page}}</td>
+                          <td>{{e.duree_examen}}</td>
+                          <td><button
+                            class="btn btn-primary btn-xs">
+                            <i class="fa fa-pencil" data-toggle="modal" data-target="#aaadd" (click)="recuppperer(e.id,e.matiere,e.nombre_exercices,e.nombre_page,e.duree_examen,e.cours.id)"></i>
+                          </button></td>
+                          <td> <button class="btn btn-danger btn-xs">
+                            <i class="fa fa-trash-o" (click)="deeleete(e.id)"></i>
+                          </button></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="aaadd" tabindex="-1" role="dialog" aria-labelledby="exampleModallLabell" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModallLabell">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <label>Matière : </label><br>
+                <input [(ngModel)]="examen.matiere" name="examen.matiere"><br>
+                <label>Nombre_exercice : </label><br>
+                <input  [(ngModel)]="examen.nombre_exercices" type="text" name="examen.nombre_exercices"><br>
+                <label>Nombre de pages : </label><br>
+                <input [(ngModel)]="examen.nombre_page" name="examen.nombre_page"><br>
+                <label>Logiciel : </label><br>
+                <input [(ngModel)]="examen.duree_examen" name="examen.duree_examen"><br>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="modifiiier()"  data-dismiss="modal">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+
+

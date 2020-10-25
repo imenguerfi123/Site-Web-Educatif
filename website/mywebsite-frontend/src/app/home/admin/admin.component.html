@@ -1,0 +1,165 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Administrateurs</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Administrateurs</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Tous Les Administrateurs</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tabbable-line">
+              <ul class="nav customtab nav-tabs" role="tablist">
+                <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">List
+                  View</a></li>
+                <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">Grid
+                  View</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active fontawesome-demo" id="tab1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-box">
+                        <div class="card-head">
+                          <header>Tous Les Administrateurs</header>
+                        </div>
+                        <div class="card-body ">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-6">
+                              <div class="btn-group">
+                                <a routerLink="/home/Ajoutadmin" id="addRow"
+                                   class="btn btn-info">
+                                  Ajouter un nouveau <i class="fa fa-plus"></i>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="table-scrollable">
+                            <table
+                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                              id="example4">
+                              <thead>
+                              <tr>
+                                <th>photo</th>
+                                <th>id</th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th> Action </th>
+                                <th>Details</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr class="odd gradeX" *ngFor="let a of listeadmins">
+                                <td class="patient-img">
+                                  <img src="http://localhost:9000/upload/files/{{a.photo}}" height="50" width="50" class="img-circle">
+                                </td>
+                                <td>{{a.id}}</td>
+                                <td>{{a.nom}}</td>
+                                <td>{{a.prenom}}</td>
+                                <td><button
+                                  class="btn btn-primary btn-xs">
+                                  <i class="fa fa-pencil" data-toggle="modal" data-target="#add" (click)="recupererr(a.photo,a.id,a.nom,a.prenom,a.metier,a.num_tel,a.adresse,a.login,a.mot_de_passe,a.confirme_mot_de_passe,a.date_enregistrement)"></i>
+                                </button>
+                                <button class="btn btn-danger btn-xs">
+                                  <i class="fa fa-trash-o" (click)="delete(a.id)"></i>
+                                </button></td>
+                                <td>
+                                  <button type="submit" routerLink="/home/admin/{{a.id}}/admindet" class="btn btn-success btn-xs" >Lire
+                                    la suite...</button>
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <div class="row">
+                    <div class="col-md-4" *ngFor="let a of listeadmins">
+                      <div class="card card-box">
+                        <div class="card-body no-padding ">
+                          <div class="doctor-profile">
+                            <img src="http://localhost:9000/upload/files/{{a.photo}}" class="doctor-pic"
+                                 alt="">
+                            <div class="profile-usertitle">
+                              <div class="doctor-name">{{a.prenom}} {{a.nom}} </div>
+                              <div class="name-center"> {{a.metier}} </div>
+                            </div>
+                            <p>{{a.adresse}}</p>
+                            <div>
+                              <p><i class="fa fa-phone"></i>{{a.num_tel}}</p>
+                            </div>
+                            <div class="profile-userbuttons">
+                              <a routerLink="/home/admin/{{a.id}}/admindet"
+                                 class="btn btn-circle deepPink-bgcolor btn-sm">Lire
+                                La Suite...</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="http://localhost:9000/upload/files/{{admin.photo}}" height="50" width="50" class="img-circle"><br>
+        <label>Nom:  </label><br>
+        <input [(ngModel)]="admin.nom" name="admin.nom"><br>
+        <label>Prenom:  </label><br>
+        <input [(ngModel)]="admin.prenom" name="admin.prenom"><br>
+        <label>Métier:  </label><br>
+        <input [(ngModel)]="admin.metier" name="admin.metier"><br>
+        <label>Numéo de Téléphone:  </label><br>
+        <input [(ngModel)]="admin.num_tel" name="admin.num_tel"><br>
+        <label>Adresse:  </label><br>
+        <input [(ngModel)]="admin.adresse" name="admin.adresse"><br>
+        <label>Login:  </label><br>
+        <input [(ngModel)]="admin.login" name="admin.login"><br>
+        <label>Mot de passe:  </label><br>
+        <input [(ngModel)]="admin.mot_de_passe" name="admin.mot_de_passe"><br>
+        <label>Confirmer Mot de passe:  </label><br>
+        <input [(ngModel)]="admin.confirme_mot_de_passe" name="admin.confirme_mot_de_passe"><br>
+        <label>Date d'enregistrement  </label><br>
+        <input [(ngModel)]="admin.date_enregistrement" name="admin.date_enregistremen"><br>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="modifierr()"  data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

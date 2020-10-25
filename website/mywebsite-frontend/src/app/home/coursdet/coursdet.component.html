@@ -1,0 +1,78 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li><a class="parent-item">Les Cours</a>&nbsp;<i
+                class="fa fa-angle-right"></i>
+              </li>
+              <li class="active">Détails De Cours</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card card-topline-aqua">
+          <div class="card-body no-padding height-9">
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">Détails de Cours </div>
+            </div>
+            <ul class="list-group list-group-unbordered">
+              <li class="list-group-item">
+                <b>photo</b>
+                <div class="col-md-4">
+                  <h4><img src="http://localhost:9000/upload/files/{{detailcours.photo}}" height="50" width="50"></h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Matière</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.matiere}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Référence</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.reference}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Durée</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.duree}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Nombre de Leçons</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.nombre_lecon}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>Description</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.description}}</h4>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <b>date_enregistrement</b>
+                <div class="col-md-4">
+                  <h4>{{detailcours.date}}</h4>
+                </div>
+              </li>
+
+            </ul>
+            <!-- END SIDEBAR USER TITLE -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

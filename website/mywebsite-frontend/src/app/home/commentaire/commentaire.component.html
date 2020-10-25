@@ -1,0 +1,71 @@
+<div class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+  <div class="page-wrapper">
+    <div class="page-content-wrapper">
+      <div class="page-content">
+        <div class="page-bar">
+          <div class="page-title-breadcrumb">
+            <div class=" pull-left">
+              <div class="page-title">Tous Les Commentaires</div>
+            </div>
+            <ol class="breadcrumb page-breadcrumb pull-right">
+              <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
+                                                     routerLink="home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+              </li>
+              <li>Les Commentaires&nbsp;
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tabbable-line">
+              <div class="tab-content">
+                <div class="tab-pane active fontawesome-demo" id="tab1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-box">
+                        <div class="card-head">
+                          <header>Tous Les Commentaires</header>
+                        </div>
+                        <div class="card-body ">
+                          <div class="table-scrollable">
+                            <table
+                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                              id="example4">
+                              <thead>
+                              <tr>
+                                <th>id</th>
+                                <th>description</th>
+                                <th>date</th>
+                                <th>heure</th>
+                                <th> Supprimer </th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr class="odd gradeX" *ngFor="let com of listecmmentaire">
+                                <td>{{com.id}}</td>
+                                <td>{{com.description}}</td>
+                                <td>{{com.date}}</td>
+                                <td>{{com.heure}}</td>
+                                <td>
+                                  <button class="btn btn-danger btn-xs">
+                                    <i class="fa fa-trash-o" (click)="delete(com.id)"></i>
+                                  </button></td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

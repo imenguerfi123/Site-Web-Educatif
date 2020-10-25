@@ -1,0 +1,65 @@
+<div class="page-header navbar navbar-fixed-top">
+  <div class="page-header-inner ">
+    <!-- logo start -->
+    <div class="page-logo">
+      <a routerLink="">
+        <span class="logo-icon material-icons fa-rotate-45">school</span>
+        <span class="logo-default">Smart</span> </a>
+    </div>
+    <!-- logo end -->
+    <ul class="nav navbar-nav navbar-left in">
+      <li><a class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
+    </ul>
+    <form class="search-form-opened" action="#" method="GET">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search..." name="query">
+        <span class="input-group-btn">
+							<a href="javascript:;" class="btn submit">
+								<i class="icon-magnifier"></i>
+							</a>
+						</span>
+      </div>
+    </form>
+    <!-- start mobile menu -->
+    <a  class="menu-toggler responsive-toggler" data-toggle="collapse"
+       data-target=".navbar-collapse">
+      <span></span>
+    </a>
+    <!-- end mobile menu -->
+    <!-- start header menu -->
+    <div class="top-menu">
+      <ul class="nav navbar-nav pull-right">
+        <!-- start notification dropdown -->
+        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+          <a routerLink="/home/commentaire" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+             data-close-others="true">
+            <i class="fa fa-bell-o"></i>
+          </a>
+        </li>
+        <!-- end notification dropdown -->
+        <!-- start message dropdown -->
+        <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+          <a routerLink="contact" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+             data-close-others="true">
+            <i class="fa fa-envelope-o"></i>
+          </a>
+
+        </li>
+        <!-- end message dropdown -->
+        <!-- start manage user dropdown -->
+        <li class="dropdown dropdown-user">
+          <a routerLink="profil" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+             data-close-others="true">
+            <img alt="" class="img-circle " src="../../../assets/img/im2.PNG" />
+            <span class="username username-hide-on-mobile"> Imen </span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="">
+            <i class="icon-logout"></i> Log Out </a>
+        </li>
+        <!-- end manage user dropdown -->
+      </ul>
+  </div>
+</div>
+</div>

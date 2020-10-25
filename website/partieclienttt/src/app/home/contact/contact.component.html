@@ -1,0 +1,70 @@
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+  <img src="../../../assets/images/banner-top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+  <div class="container">
+    <div class="matter">
+      <h2>contacter nous</h2>
+      <ul class="list-inline">
+        <li>
+          <a routerLink="">HOME</a>
+        </li>
+        <li>
+          <a routerLink="contact">contacter nous</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- bread-crumb end here -->
+<div class="contactus">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-xs-12">
+        <form method="post" enctype="multipart/form-data" class="form-horizontal">
+          <h5>get in touch</h5>
+          <hr />
+          <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <label>Nom*</label>
+              <select class="form-control" [(ngModel)]="idu" name ="idu">
+                <option class="form-control" *ngFor="let u of listeutilisateurs" value={{u.id}}>{{u.prenom}}</option>
+              </select>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <label>Email*</label>
+              <input name="email" value="" id="input-email" class="form-control" placeholder="Johndoe@example.com" type="text"[(ngModel)]="contact.email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <label>Message*</label>
+              <textarea name="enquiry" id="input-enquiry" class="form-control"[(ngModel)]="contact.message"></textarea>
+            </div>
+          </div>
+          <input class="btn btn-primary" value="Send Message" type="submit" (click)="addcontact()">
+        </form>
+      </div>
+      <div class="col-sm-3 col-xs-12">
+        <div class="address">
+          <h5>Contact Info</h5>
+          <hr>
+          <ul class="list-unstyled">
+            <li>
+              <i class="icofont icofont-phone"></i> 74 825 951
+            </li>
+            <li>
+              <i class="icofont icofont-fax"></i> 25 639 784
+            </li>
+            <li>
+              <i class="icofont icofont-envelope"></i> <a >educourses@example.com</a>
+            </li>
+            <li>
+              <i class="icofont icofont-globe"></i> <a href="#">www.educourses.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

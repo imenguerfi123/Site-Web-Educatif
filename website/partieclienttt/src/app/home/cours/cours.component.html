@@ -1,0 +1,96 @@
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+  <img src="../../../assets/images/banner-top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+  <div class="container">
+    <div class="matter">
+      <h2>Tous Les Cours</h2>
+      <ul class="list-inline">
+        <li>
+          <a routerLink="">HOME</a>
+        </li>
+        <li>
+          <a routerLink="cours">Tous Les Cours</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- bread-crumb end here -->
+
+<!-- coures start here -->
+<div class="coures">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-xs-12 hidden-xs">
+        <div class="left">
+          <h4>POPULAR COURSES</h4>
+          <div class="popular" *ngFor="let c of listecours">
+            <div class="box">
+              <img src="http://localhost:9000/upload/files/{{c.photo}}" height="50" width="50" alt="img" title="img" />
+              <p>{{c.matiere}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-9 col-xs-12 mainpage">
+        <div class="col-sm-12 sort">
+          <div class="col-md-6 col-sm-5">
+            <h3>TOUS LES COURS</h3>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="form-group">
+              <select id="input-sort" class="form-control selectpicker bs-select-hidden">
+                <option value="" selected="selected">Select Categories</option>
+                <option value="" selected="selected" *ngFor="let e of listecategoeies" value={{e.id}}>{{e.domaine}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-3 list hidden-xs">
+            <div class="btn-group btn-group-sm">
+              <button type="button" id="grid-view" class="btn btn-default btngrid" data-toggle="tooltip" title="Grid"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+              <button  type="button" id="list-view" class="btn btn-default btngrid" data-toggle="tooltip" title="List"><i class="fa fa-list-ul" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let c of listecours">
+            <div class="product-thumb">
+              <div class="image">
+                <a routerLink="/cours/{{c.id}}/coursdet">
+                  <img src="http://localhost:9000/upload/files/{{c.photo}}" class="img-responsive" alt="img" title="img" />
+                </a>
+              </div>
+              <div class="caption">
+                <h3>{{c.ca.domaine}} <span class="price">Free</span></h3>
+                <h4>{{c.matiere}}</h4>
+                <h5>{{c.matiere}} <span class="price">Free</span></h5>
+                <h6>Technology </h6>
+                <p>{{c.description}}</p>
+                <ul class="list-inline">
+                  <li>
+                    <a><i class="icofont icofont-ui-user"></i>15</a>
+                  </li>
+                  <li>
+                    <a><i class="icofont icofont-comment"></i>10</a>
+                  </li>
+                  <li>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!--pagination code start here-->
+          <!--pagination code end here-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- coures end here -->

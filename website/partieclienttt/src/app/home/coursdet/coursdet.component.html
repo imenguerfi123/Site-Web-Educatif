@@ -1,0 +1,184 @@
+
+<!-- bread-crumb start here -->
+<div class="bread-crumb">
+  <img src="../../../assets/images/banner-top.jpg" class="img-responsive" alt="banner-top" title="banner-top">
+  <div class="container">
+    <div class="matter">
+      <h2>Single course view</h2>
+      <ul class="list-inline">
+        <li><a>HOME</a></li>
+        <li><a>single course view</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- bread-crumb end here -->
+
+<!-- coures start here -->
+<div class="coures">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-xs-12 hidden-xs">
+        <div class="left">
+          <h4>DETAIL</h4>
+          <div class="detail">
+            <ul class="list-unstyled">
+              <li>
+                <i class="icofont icofont-businessman"></i> 150 Students
+              </li>
+              <li>
+                <i class="icofont icofont-clock-time">  Duration: {{detailcours.duree}}</i>
+              </li>
+              <li>
+                <i class="icofont icofont-book-alt"> Lessions: {{detailcours.nombre_lecon}}</i>
+              </li>
+              <li>
+                <i class="icofont icofont-social-youtube-play"></i> Videos 15
+              </li>
+            </ul>
+          </div>
+          <h3>TAKE THIS COURSE </h3>
+        </div>
+        <div class="left">
+          <h4>POPULAR COURSES</h4>
+          <div class="popular">
+            <div class="box">
+              <img src="http://localhost:9000/upload/files/{{detailcours.photo}}" class="img-responsive" alt="img" title="img"/>
+              <p>{{detailcours.matiere}} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 col-xs-12 details">
+        <h4>{{detailcours.matiere}}</h4>
+        <ul class="list-inline text">
+          <li>{{detailcours.categories.domaine}}</li>
+        </ul>
+        <div class="image">
+          <img src="http://localhost:9000/upload/files/{{detailcours.photo}}" class="img-responsive" alt="img" title="img"/>
+          <p>Introduction to this course</p>
+        </div>
+        <ul class="list-inline icon">
+          <li>
+            <a ><i class="icofont icofont-ui-user"></i>15</a>
+          </li>
+          <li>
+            <a ><i class="icofont icofont-comment"></i>10</a>
+          </li>
+        </ul>
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#tab-description" data-toggle="tab">description</a>
+          </li>
+          <li>
+            <a href="#tab-tutorials" data-toggle="tab">tutorials</a>
+          </li>
+          <li class="inreview">
+            <a href="#tab-review" data-toggle="tab">all reviews</a>
+          </li>
+          <li class="pull-right">
+            <a href="#"><i class="icofont icofont-plus-circle"></i>add review</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab-description">
+            <p>{{detailcours.description}}</p>
+            <p></p>
+          </div>
+          <div class="tab-pane" id="tab-tutorials">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="image1">
+                  <img src="images/tu1.jpg" class="img-responsive" alt="img" title="img" />
+                  <div class="icon">
+                    <div class="ico">
+                      <a >
+                        <i class="icofont icofont-ui-play"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-review">
+            <div class="review">
+              <div class="boxes">
+                <div class="image">
+                  <img src="../../../assets/images/review_img_01.jpg" alt="user" title="user" class="img-responsive"/>
+                </div>
+                <div class="detail">
+                  <ul class="list-inline">
+                    <li>John Doe</li>
+                    <li class="pull-right">
+                      <i class="icofont icofont-star"></i>
+                      <i class="icofont icofont-star"></i>
+                      <i class="icofont icofont-star"></i>
+                      <i class="icofont icofont-star"></i>
+                      <i class="icofont icofont-star"></i>
+                    </li>
+                  </ul>
+                  <h1>Android Developer</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris consequat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="review">
+          <form class="form-horizontal" id="form-review">
+            <h2>ADD REVIEW</h2>
+            <p>Your email address will not be published. Required fields are marked*</p>
+            <div class="form-group required">
+              <div class="col-sm-2 col-sm-12">
+                <label class="control-label" for="input-name">Name*</label>
+              </div>
+              <div class="col-sm-10 col-xs-12">
+                <input type="text"  id="input-name" class="form-control" placeholder="Name" />
+              </div>
+            </div>
+            <div class="form-group required">
+              <div class="col-sm-2 col-sm-12">
+                <label class="control-label" for="input-email">Email*</label>
+              </div>
+              <div class="col-sm-10 col-xs-12">
+                <input type="text"  id="input-email" class="form-control" placeholder="name@example.com" />
+              </div>
+            </div>
+            <div class="form-group required">
+              <div class="col-sm-2 col-xs-12">
+                <label class="control-label" for="input-review">Your REVIEWS*</label>
+              </div>
+              <div class="col-sm-10 col-xs-12">
+                <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group required">
+              <div class="col-sm-2 col-xs-12">
+                <label class="control-label" for="input-review">Your rating*</label>
+              </div>
+              <div class="col-sm-10 col-xs-12">
+                <ul class="list-inline">
+                  <li>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                    <i class="icofont icofont-star"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="buttons clearfix row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-10">
+                <button type="submit" id="button-review" class="btn btn-primary">submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- coures end here -->
